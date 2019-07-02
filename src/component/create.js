@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import axios from 'axios';
 
 export default class Create extends Component{
 
@@ -39,6 +39,14 @@ export default class Create extends Component{
 
     onSubmit(e){
         e.preventDefault();
+        const obj = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            mobNo: this.state.mobNo
+          };
+          axios.post('http://localhost:4000/User/add', obj)
+              .then(res => console.log(res.data));
+     
         console.log(`The values are ${this.state.firstName}, ${this.state.lastName}, and ${this.state.mobNo}`)
         this.setState({
           firstName: '',

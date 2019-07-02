@@ -3,7 +3,7 @@ const businessRoutes = express.Router();
 
 // Require Business model in our routes module
 let User = require('../DB/userModel');
-
+    
 // Defined store route
 businessRoutes.route('/add').post(function (req, res) {
   let user = new User(req.body);
